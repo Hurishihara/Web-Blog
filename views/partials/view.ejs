@@ -1,0 +1,20 @@
+<%- include("header.ejs") %>
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card" style="width: 28rem;">
+        <div class="card-body">
+            <% if(index !== undefined && index >= 0 && index < posts.length){%>
+                <p class="card-text"> <%= specificContent %> </p>
+                <%} %>
+                
+                <a href="/edit?index=<%= index %>">
+                <button type="edit" class="btn btn-primary btn-sm mt-2">Edit</button>
+                </a>
+                <form action="/delete" method="POST">
+                <input type="hidden" name="contentId" value="<%= index %>">
+                <button type="submit" class="btn btn-danger btn-sm mt-2 ">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("footer.ejs") %>
